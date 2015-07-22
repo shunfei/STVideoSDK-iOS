@@ -4,22 +4,22 @@
 - 运行环境为ios7.0或更高版本。
 
 ### 2.从sunteng官网获取PublisherID & PlacementID & AppID
-![pic1]()
+![pic1](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/pic1.png)
 
 ### 3.添加SDK到项目中
 > SDK 的发行版本中需要添加到项目中的文件包括1个静态库、1个头文件以及1个 Bundle 文件。 
 
 - 将上述文件,添加到您的项目中。建议直接将“MobileAdSDK”文件夹添加到项目中。 包含的内容,如下图:
 
-![pic2]()
+![pic2](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/pic2.png)
 
 - 需要添加的Framework：
 
-![pic3]()
+![pic3](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/pic3.png)
 
 - 更改导入静态库设置，点击程序Target文件，选择Build Settings标签页，找到Linking下面的Other Linker Flags，添加参数-all_load。
 
-![pic4]()
+![pic4](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/pic4.png)
 
 - iOS8中获取地理位置方法,在 info.plist里加入对应的缺省字段 ，值设置为YES。
 > NSLocationWhenInUseUsageDescription   //允许在前台获取GPS的描述
