@@ -1,5 +1,5 @@
 # STVideoSDK for iOS
-##广告 SDK
+##移动视频广告 SDK
 
 ##如何使用
 - [Getting Started with STVideoSDK](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/Getting_Started.md)
