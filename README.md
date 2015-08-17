@@ -5,8 +5,9 @@
 - [Getting Started with STVideoSDK](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/Getting_Started.md)
 
 ##SDK 回调状态码
-* 0		视频播放结束。
-* 1		视频播放中途退出。
-* 2		广告素材下载失败。
-* 10	广告数据获取失败。
-* 20	广告数据获取成功，但因作弊等其他原因不返回广告素材给用户。
+* 0		其他错误。
+* 1		广告视频播放完成，SDK关闭。
+* 2		广告视频被跳过，SDK关闭。
+* 3	  广告素材下载失败，SDK关闭。
+* 4	  广告数据获取成功，后端返回无广告素材。
+* 5	  网络问题，广告API调用失败。
