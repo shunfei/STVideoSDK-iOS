@@ -1,7 +1,7 @@
 ## 视频广告 iOS SDK 1.x 开发文档
 ### 1.开发环境
 - xcode6或更高版本。
-- 运行环境为ios7.0或更高版本。
+- 运行环境为ios6.0或更高版本。
 
 ### 2.从sunteng官网获取PublisherID & PlacementID & AppID
 ![pic1](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/pic1.png)
@@ -28,10 +28,10 @@
 
 ### 4.视频广告的使用
 ###### 1.在应用初始化中初始化视频sdk
-	[MobileAdSDK initSDKWithPublishedId:@"1234" AppId:@"2345" PlacementId:@“1"];
+	[STVideoSDK initSDKWithPublishedId:@"1234" AppId:@"2345" PlacementId:@“1"];
 ###### 2.需要播放视频的地方调用
-	[MobileAdSDK MVAVideoPlay:self videoPlayFinishCallBackBlock:^(BOOL isFinished){
-			 if (isFinished)
+	[STVideoSDK videoPlay:self videoPlayFinishCallBackBlock:^(int state){
+			 if (1 == state)
 			 {
 				 NSLog(@“视频播放结束！");
 			 }
@@ -40,3 +40,12 @@
 				 NSLog(@“视频播放中断！");
 			 }
 		  }];
+
+######state状态码定义:
+
+	0  其他错误
+	1 广告视频播放完成，SDK关闭
+	2 广告视频被跳过，SDK关闭
+	3 广告素材下载失败，SDK关闭
+	4 广告数据获取成功，后端返回无广告素材
+	5 网络问题，广告API调用失败
