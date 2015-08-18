@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "MobileAdSDK.h"
+#import "STVideoSDK.h"
 
 @interface ViewController ()
 
@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [MobileAdSDK initSDKWithPublishedId:@"2" AppId:@"1" PlacementId:@"1"];
+    [STVideoSDK initSDKWithPublishedId:@"2" AppId:@"1" PlacementId:@"1"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,14 +30,10 @@
 
 - (IBAction)playVideo:(id)sender
 {
-    [MobileAdSDK MVAVideoPlay:self videoPlayFinishCallBackBlock:^(BOOL isFinished){
-        if (isFinished)
+    [STVideoSDK videoPlay:self videoPlayFinishCallBackBlock:^(int state){
+        if (1 == state)
         {
             NSLog(@"---------video play finished!-------");
-        }
-        else
-        {
-            NSLog(@"---------video play not finished!---------");
         }
     }];
 }
