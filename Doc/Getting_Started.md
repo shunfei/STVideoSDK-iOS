@@ -1,51 +1,81 @@
-## 视频广告 iOS SDK 1.x 开发文档
-### 1.开发环境
-- xcode6或更高版本。
-- 运行环境为ios6.0或更高版本。
+# 视频广告 iOS SDK 1.x 开发文档
 
-### 2.从sunteng官网获取PublisherID & PlacementID & AppID
+## 1、开发环境
+
+* Xcode 6.0 或更高版本。
+* 支持 iOS 5.1.1+。
+
+## 2、从 sunteng 官网获取 PublisherID、PlacementID、AppID
+
 ![pic1](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/pic1.png)
 
-### 3.添加SDK到项目中
-> SDK 的发行版本中需要添加到项目中的文件包括1个静态库、1个头文件以及1个 Bundle 文件。 
+## 3、添加 SDK 到项目中
 
-- 将上述文件,添加到您的项目中。建议直接将“MobileAdSDK”文件夹添加到项目中。 包含的内容,如下图:
+**SDK 的发行版本中需要添加到项目中的文件包括1个静态库、1个头文件以及1个 Bundle 文件。**
+
+* 将上述文件，添加到您的项目中。建议直接将**MobileAdSDK**文件夹添加到项目中。包含的内容，如下图：
 
 ![pic2](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/pic2.png)
 
-- 需要添加的Framework：
+* 需要添加的Framework：
 
 ![pic3](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/pic3.png)
 
-- 更改导入静态库设置，点击程序Target文件，选择Build Settings标签页，找到Linking下面的Other Linker Flags，添加参数-all_load。
+* 更改导入静态库设置，点击程序 **Target** 文件，选择 **Build Settings** 标签页，找到 ** Linking** 下面的 **Other Linker Flags** ，添加参数 `-all_load` 。
 
 ![pic4](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/pic4.png)
 
-- iOS8中获取地理位置方法,在 info.plist里加入对应的缺省字段 ，值设置为YES。
-> NSLocationWhenInUseUsageDescription   //允许在前台获取GPS的描述
-> NSLocationAlwaysUsageDescription   //允许在前、后台获取GPS的描述 
-> 说明:由于部分广告会定向投递到某些城市, SDK 需要获取地理位置以支持广告的定向投放。 
+* iOS 8 中获取地理位置方法，在 info.plist 里加入对应的定位请求字段，值可以为空或者填写获取定位请求提示框要显示的内容。
 
-### 4.视频广告的使用
-###### 1.在应用初始化中初始化视频sdk
-	[STVideoSDK initSDKWithPublishedId:@"1234" AppId:@"2345" PlacementId:@“1"];
-###### 2.需要播放视频的地方调用
-	[STVideoSDK videoPlay:self videoPlayFinishCallBackBlock:^(int state){
-			 if (1 == state)
-			 {
-				 NSLog(@“视频播放结束！");
-			 }
-			 else
-			 {
-				 NSLog(@“视频播放中断！");
-			 }
-		  }];
+```objc
+NSLocationWhenInUseUsageDescription   // 允许在前台获取GPS的描述
+NSLocationAlwaysUsageDescription   // 允许在前、后台获取GPS的描述 
+```
 
-######state状态码定义:
+**说明：由于部分广告会定向投递到某些城市，SDK 需要获取地理位置以支持广告的定向投放。**
 
-	0  其他错误
-	1 广告视频播放完成，SDK关闭
-	2 广告视频被跳过，SDK关闭
-	3 广告素材下载失败，SDK关闭
-	4 广告数据获取成功，后端返回无广告素材
-	5 网络问题，广告API调用失败
+# 4、视频广告的使用
+
+1. 在应用 `AppDelegate.m` 的 `application:didFinishLaunchingWithOptions:` 方法中初始化视频 SDK
+
+```objc
+[STVideoSDK initSDKWithPublishedId:@"1234" AppId:@"2345" PlacementId:@"1"];
+```
+	
+2. 需要播放视频的地方调用
+
+```objc
+[STVideoSDK videoPlay:self videoPlayFinishCallBackBlock: ^(int state) {
+    switch (state) {
+        case 0:
+            NSLog(@"发生其他错误，SDK 关闭。");
+            break;
+        case 1:
+            NSLog(@"广告视频播放完成，SDK关闭。");
+            break;
+        case 2:
+            NSLog(@"广告视频被跳过，SDK关闭。");
+            break;
+        case 3:
+            NSLog(@"广告素材下载失败，SDK关闭。");
+            break;
+        case 4:
+            NSLog(@"广告数据获取成功，服务端返回无广告素材，SDK关闭。");
+            break;
+        case 5:
+            NSLog(@"网络问题，广告 API 调用失败。");
+            break;
+    }
+}];	
+```
+
+## 5、返回状态码定义
+
+```shell
+0 发生其他错误，SDK 关闭。
+1 广告视频播放完成，SDK关闭。
+2 广告视频被跳过，SDK关闭。
+3 广告素材下载失败，SDK关闭。
+4 广告数据获取成功，服务端返回无广告素材，SDK 关闭。
+5 网络问题，广告 API 调用失败，SDK 关闭。
+```
