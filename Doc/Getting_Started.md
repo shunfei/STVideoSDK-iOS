@@ -13,7 +13,7 @@
 
 **SDK 的发行版本中需要添加到项目中的文件包括1个静态库、1个头文件以及1个 Bundle 文件。**
 
-* 将上述文件，添加到您的项目中。建议直接将**MobileAdSDK**文件夹添加到项目中。包含的内容，如下图：
+* 将上述文件，添加到您的项目中。建议直接将**STVideoSDK**文件夹添加到项目中。包含的内容，如下图：
 
 ![pic2](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/pic2.png)
 

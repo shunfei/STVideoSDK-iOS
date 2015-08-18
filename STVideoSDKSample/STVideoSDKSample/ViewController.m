@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [STVideoSDK initSDKWithPublishedId:@"2" AppId:@"1" PlacementId:@"1"];
+    [STVideoSDK initSDKWithPublishedId:@"2" AppId:@"7" PlacementId:@"6"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,10 +30,26 @@
 
 - (IBAction)playVideo:(id)sender
 {
-    [STVideoSDK videoPlay:self videoPlayFinishCallBackBlock:^(int state){
-        if (1 == state)
-        {
-            NSLog(@"---------video play finished!-------");
+    [STVideoSDK videoPlay:self videoPlayFinishCallBackBlock: ^(int state) {
+        switch (state) {
+            case 0:
+                NSLog(@"发生其他错误，SDK 关闭。");
+                break;
+            case 1:
+                NSLog(@"广告视频播放完成，SDK关闭。");
+                break;
+            case 2:
+                NSLog(@"广告视频被跳过，SDK关闭。");
+                break;
+            case 3:
+                NSLog(@"广告素材下载失败，SDK关闭。");
+                break;
+            case 4:
+                NSLog(@"广告数据获取成功，服务端返回无广告素材，SDK关闭。");
+                break;
+            case 5:
+                NSLog(@"网络问题，广告 API 调用失败。");
+                break;
         }
     }];
 }
