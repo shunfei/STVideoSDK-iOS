@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "STVideoSDK.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [STVideoSDK initSDKWithPublishedId:@"2" AppId:@"7" PlacementId:@"6"];
+    
     return YES;
 }
 

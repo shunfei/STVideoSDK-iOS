@@ -18,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [STVideoSDK initSDKWithPublishedId:@"2" AppId:@"7" PlacementId:@"6"];
 }
 
 - (void)didReceiveMemoryWarning {

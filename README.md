@@ -8,10 +8,15 @@
 
 ## Change Log
 
+08/24/2015 - v1.2.1
+
+* fix bug
+
 08/18/2015 - v1.2.0
 
 * fix bug
 * support for return multi status 
+* support for return multi status
 
 05/28/2015 - v1.1.0
 
