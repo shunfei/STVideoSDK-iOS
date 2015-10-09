@@ -5,6 +5,48 @@
 * Xcode 6.0 或更高版本。
 * 支持 iOS 5.1.1+。
 
+### Xcode 7、iOS 9 适配
+
+* 关于 [*ATS*](https://developer.apple.com/library/prerelease/ios/technotes/App-Transport-Security-Technote/index.html#//apple_ref/doc/uid/TP40016240)
+
+**解决方案1：禁用 ATS。**
+
+在应用的 Info.plist 中添加禁用 ATS 代码。代码如下：
+
+```XML
+<key>NSAppTransportSecurity</key>
+<dict>
+	<key>NSAllowsArbitraryLoads</key>
+	<true/>
+</dict>
+```
+
+**解决方案2：除特殊情况外，都不使用 ATS。即，仅在您自己支持 ATS 的服务上使用 ATS。**
+
+在应用的 Info.plist 中添加支持 ATS API 域名的代码（以 api.biddingx.com 为例），其他 API 请求不使用 ATS。
+
+```XML
+<key>NSAppTransportSecurity</key>
+<dict>
+	<key>NSAllowsArbitraryLoads</key>
+	<true/>
+	<key>NSExceptionDomains</key>
+	<dict>
+		<key>api.biddingx.com</key>
+		<dict>
+			<key>NSExceptionAllowsInsecureHTTPLoads</key>
+			<false/>
+		</dict>
+	</dict>
+</dict>
+```
+
+* 关于 Bitcode
+
+Xcode 7 默认开启 Bitcode 编译选项（无Bitcode配置，默认为开启），SDK 当前版本暂未支持 Bitcode。
+
+**解决方案：请将项目对应 Target -> Build Settings -> Build Options -> Enable Bitcode 选项设置为 No**
+
 ## 2、从 sunteng 官网获取 PublisherID、PlacementID、AppID
 
 ![pic1](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/pic1.png)
