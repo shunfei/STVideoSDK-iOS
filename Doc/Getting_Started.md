@@ -3,7 +3,7 @@
 ## 1、开发环境
 
 * Xcode 6.0 或更高版本。
-* 支持 iOS 5.1.1+。
+* 支持 iOS 6.0.0+。
 
 ### Xcode 7、iOS 9 适配
 
@@ -43,7 +43,7 @@
 
 * 关于 Bitcode
 
-Xcode 7 默认开启 Bitcode 编译选项（无Bitcode配置，默认为开启），SDK 当前版本暂未支持 Bitcode。
+Xcode 7 默认开启 Bitcode 编译选项（无Bitcode配置，默认为开启），SDK 1.2.3+版本开始支持 Bitcode，如果您的工程中有其它不支持 bitcode 特性的库可能编译不过。
 
 **解决方案：请将项目对应 Target -> Build Settings -> Build Options -> Enable Bitcode 选项设置为 No**
 

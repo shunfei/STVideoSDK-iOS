@@ -8,6 +8,11 @@
 
 ## Change Log
 
+11/04/2015 - v1.2.3
+
+* bug fixes
+* support bitcode & iOS 9
+
 08/26/2015 - v1.2.2
 
 * fix bug
