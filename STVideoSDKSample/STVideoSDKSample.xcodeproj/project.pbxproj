@@ -19,8 +19,8 @@
 		C510A2FD1B5F7A370036E804 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C510A2FC1B5F7A370036E804 /* AdSupport.framework */; };
 		C510A3001B5F7A450036E804 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C510A2FE1B5F7A450036E804 /* CoreLocation.framework */; };
 		C510A3011B5F7A450036E804 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C510A2FF1B5F7A450036E804 /* CoreTelephony.framework */; };
-		C530FFBF1B82E74B003AE37B /* libSTVideoSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C530FFBC1B82E74B003AE37B /* libSTVideoSDK.a */; };
-		C530FFC01B82E74B003AE37B /* STVideoSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C530FFBD1B82E74B003AE37B /* STVideoSDK.bundle */; };
+		C5A1952A1C05BCAA00238925 /* libSTVideoSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A195271C05BCAA00238925 /* libSTVideoSDK.a */; settings = {ASSET_TAGS = (); }; };
+		C5A1952B1C05BCAA00238925 /* STVideoSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C5A195281C05BCAA00238925 /* STVideoSDK.bundle */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +52,9 @@
 		C510A2FC1B5F7A370036E804 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C510A2FE1B5F7A450036E804 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C510A2FF1B5F7A450036E804 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		C530FFBC1B82E74B003AE37B /* libSTVideoSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSTVideoSDK.a; sourceTree = "<group>"; };
-		C530FFBD1B82E74B003AE37B /* STVideoSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = STVideoSDK.bundle; sourceTree = "<group>"; };
-		C530FFBE1B82E74B003AE37B /* STVideoSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STVideoSDK.h; sourceTree = "<group>"; };
+		C5A195271C05BCAA00238925 /* libSTVideoSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSTVideoSDK.a; sourceTree = "<group>"; };
+		C5A195281C05BCAA00238925 /* STVideoSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = STVideoSDK.bundle; sourceTree = "<group>"; };
+		C5A195291C05BCAA00238925 /* STVideoSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STVideoSDK.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C510A3001B5F7A450036E804 /* CoreLocation.framework in Frameworks */,
-				C530FFBF1B82E74B003AE37B /* libSTVideoSDK.a in Frameworks */,
+				C5A1952A1C05BCAA00238925 /* libSTVideoSDK.a in Frameworks */,
 				C510A3011B5F7A450036E804 /* CoreTelephony.framework in Frameworks */,
 				C510A2FD1B5F7A370036E804 /* AdSupport.framework in Frameworks */,
 				C510A2FB1B5F7A2F0036E804 /* AVFoundation.framework in Frameworks */,
@@ -103,7 +103,7 @@
 		C510A2CB1B5F79BA0036E804 /* STVideoSDKSample */ = {
 			isa = PBXGroup;
 			children = (
-				C530FFBB1B82E74B003AE37B /* STVideoSDK */,
+				C5A195261C05BCAA00238925 /* STVideoSDK */,
 				C510A2D01B5F79BA0036E804 /* AppDelegate.h */,
 				C510A2D11B5F79BA0036E804 /* AppDelegate.m */,
 				C510A2D31B5F79BA0036E804 /* ViewController.h */,
@@ -154,12 +154,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C530FFBB1B82E74B003AE37B /* STVideoSDK */ = {
+		C5A195261C05BCAA00238925 /* STVideoSDK */ = {
 			isa = PBXGroup;
 			children = (
-				C530FFBC1B82E74B003AE37B /* libSTVideoSDK.a */,
-				C530FFBD1B82E74B003AE37B /* STVideoSDK.bundle */,
-				C530FFBE1B82E74B003AE37B /* STVideoSDK.h */,
+				C5A195271C05BCAA00238925 /* libSTVideoSDK.a */,
+				C5A195281C05BCAA00238925 /* STVideoSDK.bundle */,
+				C5A195291C05BCAA00238925 /* STVideoSDK.h */,
 			);
 			path = STVideoSDK;
 			sourceTree = "<group>";
@@ -213,6 +213,7 @@
 				TargetAttributes = {
 					C510A2C81B5F79BA0036E804 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = FXD2CBAS52;
 					};
 					C510A2E11B5F79BA0036E804 = {
 						CreatedOnToolsVersion = 6.3;
@@ -245,7 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C510A2D81B5F79BA0036E804 /* Main.storyboard in Resources */,
-				C530FFC01B82E74B003AE37B /* STVideoSDK.bundle in Resources */,
+				C5A1952B1C05BCAA00238925 /* STVideoSDK.bundle in Resources */,
 				C510A2DD1B5F79BA0036E804 /* LaunchScreen.xib in Resources */,
 				C510A2DA1B5F79BA0036E804 /* Images.xcassets in Resources */,
 			);
@@ -326,7 +327,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: // / (PHQFHSZ8SH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (PHQFHSZ8SH)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -348,6 +350,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "4de8aa9b-ba2a-4682-abd7-4a1c6dbdd045";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -370,7 +373,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: // / (PHQFHSZ8SH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (PHQFHSZ8SH)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -385,6 +389,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "4de8aa9b-ba2a-4682-abd7-4a1c6dbdd045";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -396,6 +401,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = STVideoSDKSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -406,6 +412,7 @@
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunteng.STVideoSDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -413,7 +420,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = STVideoSDKSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -424,6 +432,7 @@
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunteng.STVideoSDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
