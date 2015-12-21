@@ -1,24 +1,22 @@
-<h2>视频广告 iOS SDK 1.x 开发文档</h2>
+<h1>视频广告 iOS SDK 2.x 开发文档</h1>
 
-<h3>1.开发环境</h3>
+<h2>1、开发环境</h2>
 
 <ul>
-	<li>xcode6或更高版本。</li>
-	<li>运行环境为ios5.1.1或更高版本。</li>
+	<li>Xcode 6.0 或更高版本。</li>
+	<li>支持 iOS 6.0.0+。</li>
 </ul>
 
-<h3>2.从sunteng官网获取PublisherID &amp; PlacementID &amp; AppID</h3>
+<h2>2、从 sunteng 官网获取 PublisherID、PlacementID、AppID</h2>
 
 <figure><img src="pic1.png"/></figure>
 
-<h3>3.添加SDK到项目中</h3>
+<h2>3、添加 SDK 到项目中</h2>
 
-<blockquote>
-<p>SDK 的发行版本中需要添加到项目中的文件包括1个静态库、1个头文件以及1个 Bundle 文件。 </p>
-</blockquote>
+<p><strong>SDK 的发行版本中需要添加到项目中的文件包括1个静态库、1个头文件以及1个 Bundle 文件。</strong></p>
 
 <ul>
-	<li>将上述文件,添加到您的项目中。建议直接将“STVideoSDK”文件夹添加到项目中。 包含的内容,如下图:</li>
+	<li>将上述文件，添加到您的项目中。建议直接将<strong>STVideoSDK</strong>文件夹添加到项目中。包含的内容，如下图：</li>
 </ul>
 
 <figure><img src="pic2.png"/></figure>
@@ -30,44 +28,134 @@
 <figure><img src="pic3.png"/></figure>
 
 <ul>
-	<li>更改导入静态库设置，点击程序Target文件，选择Build Settings标签页，找到Linking下面的Other Linker Flags，添加参数-all <em> </em>load。</li>
+	<li>更改导入静态库设置，点击程序 <strong>Target</strong> 文件，选择 <strong>Build Settings</strong> 标签页，找到 <strong> Linking</strong> 下面的 <strong>Other Linker Flags</strong> ，添加参数 <code>-ObjC</code> 。</li>
 </ul>
 
 <figure><img src="pic4.png"/></figure>
 
 <ul>
-	<li>iOS8中获取地理位置方法,在 info.plist里加入对应的缺省字段 ，值设置为YES。</li>
+	<li>iOS 8 中获取地理位置方法，在 info.plist 里加入对应的定位请求字段，值可以为空或者填写获取定位请求提示框要显示的内容。</li>
 </ul>
 
-<blockquote>
-<p>NSLocationWhenInUseUsageDescription //允许在前台获取GPS的描述</p>
-
-<p>NSLocationAlwaysUsageDescription //允许在前、后台获取GPS的描述 </p>
-
-<p>说明:由于部分广告会定向投递到某些城市, SDK 需要获取地理位置以支持广告的定向投放。 </p>
-</blockquote>
-
-<h3>4.视频广告的使用</h3>
-
-<h6>1.在应用初始化中初始化视频sdk</h6>
-
-<pre><code>[STVideoSDK initSDKWithPublishedId:@&quot;1234&quot; AppId:@&quot;2345&quot; PlacementId:@“1&quot;];
+<pre><code>NSLocationWhenInUseUsageDescription   // 允许在前台获取GPS的描述
+NSLocationAlwaysUsageDescription   // 允许在前、后台获取GPS的描述 
 </code></pre>
 
-<h6>2.需要播放视频的地方调用</h6>
+<p><strong>说明：由于部分广告会定向投递到某些城市，SDK 需要获取地理位置以支持广告的定向投放。</strong></p>
 
-<pre><code>[STVideoSDK videoPlay:self videoPlayFinishCallBackBlock:^(int state){
-		 if (1 == state)
-		 {
-			 NSLog(@“视频播放结束！&quot;);
-		 }
-	  }];
+<p><em>Xcode 7、iOS 9 适配</em></p>
+
+<ul>
+	<li>关于 <a href=""><em>ATS</em></a>(https://developer.apple.com/library/prerelease/ios/technotes/App-Transport-Security-Technote/index.html#//apple<em>ref/doc/uid/TP40016240)</em></li>
+</ul>
+
+<p><strong>解决方案1：禁用 ATS。</strong></p>
+
+<p>在应用的 Info.plist 中添加禁用 ATS 代码。代码如下：</p>
+
+<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+	&lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+	&lt;true/&gt;
+&lt;/dict&gt;
 </code></pre>
 
-<p>state状态码定义: </p>
-<p>0 其他错误</p>
-<p>1 广告视频播放完成，SDK关闭</p>
-<p>2 广告视频被跳过，SDK关闭</p>
-<p>3 广告素材下载失败，SDK关闭</p>
-<p>4 广告数据获取成功，后端返回无广告素材</p>
-<p>5 网络问题，广告API调用失败</p>
+<p><strong>解决方案2：除特殊情况外，都不使用 ATS。即，仅在您自己支持 ATS 的服务上使用 ATS。</strong></p>
+
+<p>在应用的 Info.plist 中添加支持 ATS API 域名的代码（以 api.biddingx.com 为例），其他 API 请求不使用 ATS。</p>
+
+<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+	&lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+	&lt;true/&gt;
+	&lt;key&gt;NSExceptionDomains&lt;/key&gt;
+	&lt;dict&gt;
+		&lt;key&gt;api.biddingx.com&lt;/key&gt;
+		&lt;dict&gt;
+			&lt;key&gt;NSExceptionAllowsInsecureHTTPLoads&lt;/key&gt;
+			&lt;false/&gt;
+		&lt;/dict&gt;
+	&lt;/dict&gt;
+&lt;/dict&gt;
+</code></pre>
+
+<ul>
+	<li>关于 Bitcode</li>
+</ul>
+
+<p>Xcode 7 默认开启 Bitcode 编译选项（无Bitcode配置，默认为开启），SDK 1.2.3+版本开始支持 Bitcode，如果您的工程中有其它不支持 bitcode 特性的库可能编译不过。</p>
+
+<p><strong>解决方案：请将项目对应 Target -&gt; Build Settings -&gt; Build Options -&gt; Enable Bitcode 选项设置为 No</strong></p>
+
+<h2>4、视频广告的使用</h2>
+
+<h3>4.1 广告样式1（全屏模态视频广告）</h3>
+
+<p>1、在应用 <code>AppDelegate.m</code> 的 <code>application:didFinishLaunchingWithOptions:</code> 方法中初始化视频 SDK</p>
+
+<pre><code>[STVideoSDK initSDKWithPublishedId:@&quot;1234&quot; AppId:@&quot;2345&quot; PlacementId:@&quot;1&quot;];
+</code></pre>
+
+<p>2、需要播放视频的地方调用</p>
+
+<pre><code>[STVideoSDK videoPlay:self videoPlayFinishCallBackBlock: ^(int state) {
+	switch (state) {
+		case 0:
+			NSLog(@&quot;发生其他错误，SDK 关闭。&quot;);
+			break;
+		case 1:
+			NSLog(@&quot;广告视频播放完成，SDK关闭。&quot;);
+			break;
+		case 2:
+			NSLog(@&quot;广告视频被跳过，SDK关闭。&quot;);
+			break;
+		case 3:
+			NSLog(@&quot;广告素材下载失败，SDK关闭。&quot;);
+			break;
+		case 4:
+			NSLog(@&quot;广告数据获取成功，服务端返回无广告素材，SDK关闭。&quot;);
+			break;
+		case 5:
+			NSLog(@&quot;网络问题，广告 API 调用失败。&quot;);
+			break;
+	}
+}];	
+</code></pre>
+
+<p> 3、返回状态码定义</p>
+
+<pre><code>0 发生其他错误，SDK 关闭。
+1 广告视频播放完成，SDK关闭。
+2 广告视频被跳过，SDK关闭。
+3 广告素材下载失败，SDK关闭。
+4 广告数据获取成功，服务端返回无广告素材，SDK 关闭。
+5 网络问题，广告 API 调用失败，SDK 关闭。
+</code></pre>
+
+<h3>4.2 广告样式2（自定义大小，可全屏的视频广告）</h3>
+
+<p>1、在应用 <code>AppDelegate.m</code> 的 <code>application:didFinishLaunchingWithOptions:</code> 方法中初始化视频 SDK</p>
+
+<pre><code>[STVideoSDK initSDKWithPublishedId:@&quot;1234&quot; AppId:@&quot;2345&quot; PlacementId:@&quot;1&quot;];
+</code></pre>
+
+<p>2、需要播放视频的地方，先调用以下方法</p>
+
+<pre><code>[STVideoSDK isHaveVideo:^(int state) {}];
+</code></pre>
+
+<p>当回调的 <code>state == 0</code> 时，表示有广告可显示，再使用以下方法创建广告</p>
+
+<pre><code>[STVideoSDK videoPlay:viewController videoSuperView:superView videoPlayFinishWithCompletionHandler:nil clickDownloadHandler:nil];~
+</code></pre>
+
+<p>3、当将广告添加在 UIScrollView、UITableView 等可滚动的控件上时，请自行在视频滚出屏幕时，使用 <code>+ (void)playVideo;</code> 和 <code>+ (void)pauseVideo;</code> 方法控制视频的暂停和继续播放。</p>
+
+<h3>4.3 高级设置</h3>
+
+<pre><code>+ (void)showCloseVideoButton:(BOOL)isShow;
++ (void)setCloseAlertViewContent:(nullable NSString *)content;
+</code></pre>
+
+<p>开发者可以使用以上两个方法，自定义两种广告样式是否在左上角显示广告关闭按钮，以及关闭按钮点击后的提示语。（默认为不显示关闭按钮，默认关闭提示语为“退出视频”。）</p>
+

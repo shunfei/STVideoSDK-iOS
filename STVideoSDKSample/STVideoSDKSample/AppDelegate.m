@@ -18,7 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [STVideoSDK initSDKWithPublishedId:@"2" AppId:@"7" PlacementId:@"6"];
+    [STVideoSDK registerSDKWithPublishedId:@"2"
+                                     appId:@"7"
+                               placementId:@"6"];
     
     return YES;
 }

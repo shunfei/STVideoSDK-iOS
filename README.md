@@ -8,6 +8,11 @@
 
 ## Change Log
 
+12/21/2015 - v2.0.0
+
+* fixed bug
+* support embedded video advertisement
+
 11/26/2015 - v1.2.4
 
 * fixed bug

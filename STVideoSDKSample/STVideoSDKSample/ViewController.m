@@ -6,8 +6,9 @@
 //  Copyright (c) 2015年 sunteng. All rights reserved.
 //
 
-#import "ViewController.h"
 #import "STVideoSDK.h"
+#import "ViewController.h"
+#import "STMNonfullScreenViewController.h"
 
 @interface ViewController ()
 
@@ -27,31 +28,20 @@
 
 
 
-- (IBAction)playVideo:(id)sender
+- (IBAction)playFullScreenVideo:(id)sender
 {
-    [STVideoSDK videoPlay:self videoPlayFinishCallBackBlock: ^(int state) {
-        switch (state) {
-            case 0:
-                NSLog(@"发生其他错误，SDK 关闭。");
-                break;
-            case 1:
-                NSLog(@"广告视频播放完成，SDK关闭。");
-                break;
-            case 2:
-                NSLog(@"广告视频被跳过，SDK关闭。");
-                break;
-            case 3:
-                NSLog(@"广告素材下载失败，SDK关闭。");
-                break;
-            case 4:
-                NSLog(@"广告数据获取成功，服务端返回无广告素材，SDK关闭。");
-                break;
-            case 5:
-                NSLog(@"网络问题，广告 API 调用失败。");
-                break;
-        }
-    }];
+    [STVideoSDK showCloseVideoButton:YES];
+    [STVideoSDK setCloseAlertViewContent:@"我是自定义的提示内容？"];
+    [STVideoSDK presentVideoPlayerViewControllerInViewController:self
+                            videoPlayFinishWithCompletionHandler:nil];
 }
 
+- (IBAction)playNonScreenVideo:(id)sender
+{
+    STMNonfullScreenViewController *vc = [[STMNonfullScreenViewController alloc] init];
+    vc.isShow = YES;
+    vc.content = @"我是自定义的提示内容？";
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end
