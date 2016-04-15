@@ -7,6 +7,10 @@
 - [Getting Started with STVideoSDK](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/Getting_Started.md)
 
 ## Change Log
+04/15/2016 - v2.0.1
+
+* fixed bug
+* support custom settings of corner mark 
 
 12/21/2015 - v2.0.0
 

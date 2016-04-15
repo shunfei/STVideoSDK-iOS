@@ -43,7 +43,7 @@
     }
     
     [STVideoSDK showCloseVideoButton:self.isShow];
-    [STVideoSDK setCloseAlertViewContent:self.content];
+    [STVideoSDK setupAlertViewContent:self.content];
     [STVideoSDK isHaveVideo:^(int state) {
         if (state == 0) {
             [STVideoSDK videoPlay:self videoSuperView:self.containerView videoPlayFinishWithCompletionHandler:nil clickDownloadHandler:nil];

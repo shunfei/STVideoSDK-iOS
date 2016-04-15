@@ -83,13 +83,16 @@ Xcode 7 默认开启 Bitcode 编译选项（无Bitcode配置，默认为开启�
 1、在应用 `AppDelegate.m` 的 `application:didFinishLaunchingWithOptions:` 方法中初始化视频 SDK
 
 ```objc
-[STVideoSDK initSDKWithPublishedId:@"1234" AppId:@"2345" PlacementId:@"1"];
+[STVideoSDK registerSDKWithPublishedId:@"1234"
+                                 appId:@"2345"
+                           placementId:@"1"]
 ```
 	
 2、需要播放视频的地方调用
 
 ```objc
-[STVideoSDK videoPlay:self videoPlayFinishCallBackBlock: ^(int state) {
+[STVideoSDK presentVideoPlayerViewControllerInViewController:viewController
+                        videoPlayFinishWithCompletionHandler:^(int state) {
     switch (state) {
         case 0:
             NSLog(@"发生其他错误，SDK 关闭。");
@@ -110,7 +113,7 @@ Xcode 7 默认开启 Bitcode 编译选项（无Bitcode配置，默认为开启�
             NSLog(@"网络问题，广告 API 调用失败。");
             break;
     }
-}];	
+}];
 ```
 
  3、返回状态码定义
@@ -129,7 +132,9 @@ Xcode 7 默认开启 Bitcode 编译选项（无Bitcode配置，默认为开启�
 1、在应用 `AppDelegate.m` 的 `application:didFinishLaunchingWithOptions:` 方法中初始化视频 SDK
 
 ```objc
-[STVideoSDK initSDKWithPublishedId:@"1234" AppId:@"2345" PlacementId:@"1"];
+[STVideoSDK registerSDKWithPublishedId:@"1234"
+                                 appId:@"2345"
+                           placementId:@"1"]
 ```
 
 2、需要播放视频的地方，先调用以下方法
@@ -150,7 +155,7 @@ Xcode 7 默认开启 Bitcode 编译选项（无Bitcode配置，默认为开启�
 
 ```objc
 + (void)showCloseVideoButton:(BOOL)isShow;
-+ (void)setCloseAlertViewContent:(nullable NSString *)content;
++ (void)setupAlertViewContent:(nullable NSString *)content;
 ```
 
 开发者可以使用以上两个方法，自定义两种广告样式是否在左上角显示广告关闭按钮，以及关闭按钮点击后的提示语。（默认为不显示关闭按钮，默认关闭提示语为“退出视频”。）

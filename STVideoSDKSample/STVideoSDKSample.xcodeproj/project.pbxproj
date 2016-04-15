@@ -19,9 +19,9 @@
 		C510A2FD1B5F7A370036E804 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C510A2FC1B5F7A370036E804 /* AdSupport.framework */; };
 		C510A3001B5F7A450036E804 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C510A2FE1B5F7A450036E804 /* CoreLocation.framework */; };
 		C510A3011B5F7A450036E804 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C510A2FF1B5F7A450036E804 /* CoreTelephony.framework */; };
-		C55F561F1C1AAFD4002C9244 /* libSTVideoSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C55F561C1C1AAFD4002C9244 /* libSTVideoSDK.a */; settings = {ASSET_TAGS = (); }; };
-		C55F56201C1AAFD4002C9244 /* STVideoSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C55F561D1C1AAFD4002C9244 /* STVideoSDK.bundle */; settings = {ASSET_TAGS = (); }; };
-		C55F56261C1AB087002C9244 /* STMNonfullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C55F56241C1AB087002C9244 /* STMNonfullScreenViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C55F561F1C1AAFD4002C9244 /* libSTVideoSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C55F561C1C1AAFD4002C9244 /* libSTVideoSDK.a */; };
+		C55F56201C1AAFD4002C9244 /* STVideoSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C55F561D1C1AAFD4002C9244 /* STVideoSDK.bundle */; };
+		C55F56261C1AB087002C9244 /* STMNonfullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C55F56241C1AB087002C9244 /* STMNonfullScreenViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -406,9 +406,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: // / (8C4GZ26J43)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (8C4GZ26J43)";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = STVideoSDKSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -419,7 +419,7 @@
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunteng.STVideoSDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4de8aa9b-ba2a-4682-abd7-4a1c6dbdd045";
 			};
 			name = Debug;
 		};
@@ -427,9 +427,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: // / (8C4GZ26J43)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (8C4GZ26J43)";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = STVideoSDKSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -440,7 +440,7 @@
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunteng.STVideoSDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4de8aa9b-ba2a-4682-abd7-4a1c6dbdd045";
 			};
 			name = Release;
 		};
