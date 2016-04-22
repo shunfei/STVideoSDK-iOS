@@ -2,7 +2,7 @@
 //  STVideoSDK.h
 //  STVideoSDK
 //
-//  Created by 许忠洲 on 15/11/9.
+//  Created by Joe on 15/11/9.
 //  Copyright © 2015年 Sunteng Information Technology Co., Ltd. All rights reserved.
 //
 
@@ -36,19 +36,48 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)isHaveVideo:(void (^ __nullable)(int state))completionHandler;
 
 /**
- *  Wi-Fi下预加载广告资源文件。默认不开启，使用改方法后开启。
+ *  Wi-Fi下预加载广告资源文件。默认不开启，使用改该方法后开启。
  */
 + (void)preDownloadResourcesAtWifiNetwork;
 
 #pragma mark - 全屏广告 API
 
+/**
+ *  是否已经下载完广告资源，可以直接播放
+ *
+ *  @return 是否可以直接播放
+ */
++ (BOOL)isReadyForPlay;
+
+/**
+ *  展示全屏视频广告
+ *
+ *  @param viewController    从该视图控制器展示广告
+ *  @param completionHandler 视频广告相关事件回调
+ */
 + (void)presentVideoPlayerViewControllerInViewController:(UIViewController *)viewController
                     videoPlayFinishWithCompletionHandler:(void (^ __nullable)(int state))completionHandler;
 
 #pragma mark - 非全屏广告 API
 
+/**
+ *  在视图控制器的某个视图上添加非全屏视频广告
+ *
+ *  @param viewController    从该视图控制器展示广告
+ *  @param superView         非全屏广告播放器的父视图（容器）
+ *  @param completionHandler 视频广告相关事件回调
+ *  @param clickHandler      视频点击交互相关回调
+ */
 + (void)videoPlay:(UIViewController *)viewController videoSuperView:(UIView *)superView videoPlayFinishWithCompletionHandler:(void (^ __nullable)(void))completionHandler clickDownloadHandler:(void (^ __nullable)(void))clickHandler;
+
+/**
+ *  播放视频
+ */
 + (void)playVideo;
+
+/**
+ *  暂停视频
+ */
 + (void)pauseVideo;
 
 /**

@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 sunteng. All rights reserved.
 //
 
-#import "STVideoSDK.h"
 #import "ViewController.h"
+#import "STVideoSDK.h"
 #import "STMNonfullScreenViewController.h"
 
 @interface ViewController ()
@@ -19,21 +19,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    // 开启广告资源 Wi-Fi 下提前下载
+    [STVideoSDK preDownloadResourcesAtWifiNetwork];
+    
+    // 手动触发获取广告数据请求
+    [STVideoSDK isHaveVideo:^(int state) {}];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 
 - (IBAction)playFullScreenVideo:(id)sender
 {
-    [STVideoSDK showCloseVideoButton:YES];
-    [STVideoSDK setupAlertViewContent:@"我是自定义的提示内容？"];
-    [STVideoSDK presentVideoPlayerViewControllerInViewController:self
-                            videoPlayFinishWithCompletionHandler:nil];
+    // 检查是否有已经下载完素材，能直接播放的视频广告
+    BOOL isReadyForPlay = [STVideoSDK isReadyForPlay];
+    if (isReadyForPlay) {
+        [STVideoSDK showCloseVideoButton:YES];
+        [STVideoSDK setupAlertViewContent:@"我是自定义的提示内容？"];
+        [STVideoSDK presentVideoPlayerViewControllerInViewController:self
+                                videoPlayFinishWithCompletionHandler:nil];
+    }
 }
 
 - (IBAction)playNonScreenVideo:(id)sender

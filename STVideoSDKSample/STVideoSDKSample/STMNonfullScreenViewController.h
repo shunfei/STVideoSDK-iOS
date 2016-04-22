@@ -2,7 +2,7 @@
 //  STMNonfullScreenViewController.h
 //  STVideoSDKSample
 //
-//  Created by 许忠洲 on 15/12/9.
+//  Created by Joe on 15/12/9.
 //  Copyright © 2015年 Sunteng Information Technology Co., Ltd. All rights reserved.
 //
 

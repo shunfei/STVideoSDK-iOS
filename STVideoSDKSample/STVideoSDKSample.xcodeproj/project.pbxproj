@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		570A01181CCA0D05007E2C6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570A01171CCA0D05007E2C6C /* Foundation.framework */; };
+		570A011A1CCA0D0D007E2C6C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570A01191CCA0D0D007E2C6C /* MobileCoreServices.framework */; };
+		570A011C1CCA0D13007E2C6C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570A011B1CCA0D13007E2C6C /* Security.framework */; };
+		570A011E1CCA0D1B007E2C6C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570A011D1CCA0D1B007E2C6C /* SystemConfiguration.framework */; };
+		570A01201CCA0D21007E2C6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570A011F1CCA0D21007E2C6C /* UIKit.framework */; };
+		570A01221CCA0D2C007E2C6C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 570A01211CCA0D2C007E2C6C /* libz.tbd */; };
+		570A01271CCA181B007E2C6C /* libSTVideoSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 570A01241CCA181B007E2C6C /* libSTVideoSDK.a */; };
+		570A01281CCA181B007E2C6C /* STVideoSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 570A01251CCA181B007E2C6C /* STVideoSDK.bundle */; };
 		C510A2CF1B5F79BA0036E804 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C510A2CE1B5F79BA0036E804 /* main.m */; };
 		C510A2D21B5F79BA0036E804 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C510A2D11B5F79BA0036E804 /* AppDelegate.m */; };
 		C510A2D51B5F79BA0036E804 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C510A2D41B5F79BA0036E804 /* ViewController.m */; };
@@ -14,13 +22,10 @@
 		C510A2DA1B5F79BA0036E804 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C510A2D91B5F79BA0036E804 /* Images.xcassets */; };
 		C510A2DD1B5F79BA0036E804 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C510A2DB1B5F79BA0036E804 /* LaunchScreen.xib */; };
 		C510A2E91B5F79BA0036E804 /* STVideoSDKSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C510A2E81B5F79BA0036E804 /* STVideoSDKSampleTests.m */; };
-		C510A2F91B5F7A2B0036E804 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C510A2F81B5F7A2B0036E804 /* libz.dylib */; };
 		C510A2FB1B5F7A2F0036E804 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C510A2FA1B5F7A2F0036E804 /* AVFoundation.framework */; };
 		C510A2FD1B5F7A370036E804 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C510A2FC1B5F7A370036E804 /* AdSupport.framework */; };
 		C510A3001B5F7A450036E804 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C510A2FE1B5F7A450036E804 /* CoreLocation.framework */; };
 		C510A3011B5F7A450036E804 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C510A2FF1B5F7A450036E804 /* CoreTelephony.framework */; };
-		C55F561F1C1AAFD4002C9244 /* libSTVideoSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C55F561C1C1AAFD4002C9244 /* libSTVideoSDK.a */; };
-		C55F56201C1AAFD4002C9244 /* STVideoSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C55F561D1C1AAFD4002C9244 /* STVideoSDK.bundle */; };
 		C55F56261C1AB087002C9244 /* STMNonfullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C55F56241C1AB087002C9244 /* STMNonfullScreenViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +40,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		570A01171CCA0D05007E2C6C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		570A01191CCA0D0D007E2C6C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		570A011B1CCA0D13007E2C6C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		570A011D1CCA0D1B007E2C6C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		570A011F1CCA0D21007E2C6C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		570A01211CCA0D2C007E2C6C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		570A01241CCA181B007E2C6C /* libSTVideoSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSTVideoSDK.a; sourceTree = "<group>"; };
+		570A01251CCA181B007E2C6C /* STVideoSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = STVideoSDK.bundle; sourceTree = "<group>"; };
+		570A01261CCA181B007E2C6C /* STVideoSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STVideoSDK.h; sourceTree = "<group>"; };
 		C510A2C91B5F79BA0036E804 /* STVideoSDKSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STVideoSDKSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C510A2CD1B5F79BA0036E804 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C510A2CE1B5F79BA0036E804 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -48,14 +62,10 @@
 		C510A2E21B5F79BA0036E804 /* STVideoSDKSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STVideoSDKSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C510A2E71B5F79BA0036E804 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C510A2E81B5F79BA0036E804 /* STVideoSDKSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STVideoSDKSampleTests.m; sourceTree = "<group>"; };
-		C510A2F81B5F7A2B0036E804 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C510A2FA1B5F7A2F0036E804 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C510A2FC1B5F7A370036E804 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C510A2FE1B5F7A450036E804 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C510A2FF1B5F7A450036E804 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		C55F561C1C1AAFD4002C9244 /* libSTVideoSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSTVideoSDK.a; sourceTree = "<group>"; };
-		C55F561D1C1AAFD4002C9244 /* STVideoSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = STVideoSDK.bundle; sourceTree = "<group>"; };
-		C55F561E1C1AAFD4002C9244 /* STVideoSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STVideoSDK.h; sourceTree = "<group>"; };
 		C55F56231C1AB087002C9244 /* STMNonfullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMNonfullScreenViewController.h; sourceTree = "<group>"; };
 		C55F56241C1AB087002C9244 /* STMNonfullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMNonfullScreenViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,12 +75,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570A01221CCA0D2C007E2C6C /* libz.tbd in Frameworks */,
+				570A01201CCA0D21007E2C6C /* UIKit.framework in Frameworks */,
+				570A011E1CCA0D1B007E2C6C /* SystemConfiguration.framework in Frameworks */,
+				570A011C1CCA0D13007E2C6C /* Security.framework in Frameworks */,
+				570A011A1CCA0D0D007E2C6C /* MobileCoreServices.framework in Frameworks */,
+				570A01181CCA0D05007E2C6C /* Foundation.framework in Frameworks */,
 				C510A3001B5F7A450036E804 /* CoreLocation.framework in Frameworks */,
-				C55F561F1C1AAFD4002C9244 /* libSTVideoSDK.a in Frameworks */,
 				C510A3011B5F7A450036E804 /* CoreTelephony.framework in Frameworks */,
 				C510A2FD1B5F7A370036E804 /* AdSupport.framework in Frameworks */,
+				570A01271CCA181B007E2C6C /* libSTVideoSDK.a in Frameworks */,
 				C510A2FB1B5F7A2F0036E804 /* AVFoundation.framework in Frameworks */,
-				C510A2F91B5F7A2B0036E804 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +99,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		570A01231CCA181B007E2C6C /* STVideoSDK */ = {
+			isa = PBXGroup;
+			children = (
+				570A01241CCA181B007E2C6C /* libSTVideoSDK.a */,
+				570A01251CCA181B007E2C6C /* STVideoSDK.bundle */,
+				570A01261CCA181B007E2C6C /* STVideoSDK.h */,
+			);
+			name = STVideoSDK;
+			path = ../../STVideoSDK;
+			sourceTree = "<group>";
+		};
 		C510A2C01B5F79BA0036E804 = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +132,7 @@
 		C510A2CB1B5F79BA0036E804 /* STVideoSDKSample */ = {
 			isa = PBXGroup;
 			children = (
-				C55F561B1C1AAFC6002C9244 /* STVideoSDK */,
+				570A01231CCA181B007E2C6C /* STVideoSDK */,
 				C510A2D01B5F79BA0036E804 /* AppDelegate.h */,
 				C510A2D11B5F79BA0036E804 /* AppDelegate.m */,
 				C510A2D31B5F79BA0036E804 /* ViewController.h */,
@@ -150,23 +176,18 @@
 		C518F3201B5F7B7200E2BC54 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C510A2FE1B5F7A450036E804 /* CoreLocation.framework */,
-				C510A2FF1B5F7A450036E804 /* CoreTelephony.framework */,
 				C510A2FC1B5F7A370036E804 /* AdSupport.framework */,
 				C510A2FA1B5F7A2F0036E804 /* AVFoundation.framework */,
-				C510A2F81B5F7A2B0036E804 /* libz.dylib */,
+				C510A2FE1B5F7A450036E804 /* CoreLocation.framework */,
+				C510A2FF1B5F7A450036E804 /* CoreTelephony.framework */,
+				570A01171CCA0D05007E2C6C /* Foundation.framework */,
+				570A01191CCA0D0D007E2C6C /* MobileCoreServices.framework */,
+				570A011B1CCA0D13007E2C6C /* Security.framework */,
+				570A011D1CCA0D1B007E2C6C /* SystemConfiguration.framework */,
+				570A011F1CCA0D21007E2C6C /* UIKit.framework */,
+				570A01211CCA0D2C007E2C6C /* libz.tbd */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C55F561B1C1AAFC6002C9244 /* STVideoSDK */ = {
-			isa = PBXGroup;
-			children = (
-				C55F561C1C1AAFD4002C9244 /* libSTVideoSDK.a */,
-				C55F561D1C1AAFD4002C9244 /* STVideoSDK.bundle */,
-				C55F561E1C1AAFD4002C9244 /* STVideoSDK.h */,
-			);
-			path = STVideoSDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,7 +239,6 @@
 				TargetAttributes = {
 					C510A2C81B5F79BA0036E804 = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = FXD2CBAS52;
 					};
 					C510A2E11B5F79BA0036E804 = {
 						CreatedOnToolsVersion = 6.3;
@@ -251,7 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C510A2D81B5F79BA0036E804 /* Main.storyboard in Resources */,
-				C55F56201C1AAFD4002C9244 /* STVideoSDK.bundle in Resources */,
+				570A01281CCA181B007E2C6C /* STVideoSDK.bundle in Resources */,
 				C510A2DD1B5F79BA0036E804 /* LaunchScreen.xib in Resources */,
 				C510A2DA1B5F79BA0036E804 /* Images.xcassets in Resources */,
 			);
@@ -333,8 +353,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: // / (PHQFHSZ8SH)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (PHQFHSZ8SH)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -356,7 +375,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "4de8aa9b-ba2a-4682-abd7-4a1c6dbdd045";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -379,8 +398,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: // / (PHQFHSZ8SH)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (PHQFHSZ8SH)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -395,7 +413,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "4de8aa9b-ba2a-4682-abd7-4a1c6dbdd045";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -406,20 +424,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: // / (8C4GZ26J43)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (8C4GZ26J43)";
-				ENABLE_BITCODE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = STVideoSDKSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/STVideoSDKSample/STVideoSDK",
+					"$(PROJECT_DIR)/../STVideoSDK",
 				);
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunteng.STVideoSDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4de8aa9b-ba2a-4682-abd7-4a1c6dbdd045";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -427,20 +444,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: // / (8C4GZ26J43)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (8C4GZ26J43)";
-				ENABLE_BITCODE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = STVideoSDKSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/STVideoSDKSample/STVideoSDK",
+					"$(PROJECT_DIR)/../STVideoSDK",
 				);
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunteng.STVideoSDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4de8aa9b-ba2a-4682-abd7-4a1c6dbdd045";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

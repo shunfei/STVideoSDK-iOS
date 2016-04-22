@@ -2,7 +2,7 @@
 //  STMNonfullScreenViewController.m
 //  STVideoSDKSample
 //
-//  Created by 许忠洲 on 15/12/9.
+//  Created by Joe on 15/12/9.
 //  Copyright © 2015年 Sunteng Information Technology Co., Ltd. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 
 @interface STMNonfullScreenViewController ()
 
-//用户自定义的view，用来播放视频广告
+// 用户自定义的view，用来播放视频广告
 @property (nonatomic, strong) UIView *containerView;
 
 @end
