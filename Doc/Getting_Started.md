@@ -18,10 +18,13 @@
 ```objc
 AdSupport.framework
 AVFoundation.framework
+CoreGraphics.framework
 CoreLocation.framework
+CoreMedia.framework
 CoreTelephony.framework
 Foundation.framework
 MobileCoreServices.framework
+QuartzCore.framework
 Security.framework
 SystemConfiguration.framework
 UIKit.framework
