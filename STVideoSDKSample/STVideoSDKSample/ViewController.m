@@ -19,24 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    // 开启广告资源 Wi-Fi 下提前下载
-    [STVideoSDK preDownloadResourcesAtWifiNetwork];
-    
-    // 手动触发获取广告数据请求
-    [STVideoSDK isHaveVideo:^(int state) {}];
 }
 
 - (IBAction)playFullScreenVideo:(id)sender
 {
-    // 检查是否有已经下载完素材，能直接播放的视频广告
-    BOOL isReadyForPlay = [STVideoSDK isReadyForPlay];
-    if (isReadyForPlay) {
-        [STVideoSDK showCloseVideoButton:YES];
-        [STVideoSDK setupAlertViewContent:@"我是自定义的提示内容？"];
-        [STVideoSDK presentVideoPlayerViewControllerInViewController:self
-                                videoPlayFinishWithCompletionHandler:nil];
-    }
+    [STVideoSDK showCloseVideoButton:YES];
+    [STVideoSDK setupAlertViewContent:@"我是自定义的提示内容？"];
+    [STVideoSDK presentVideoPlayerViewControllerInViewController:self
+                            videoPlayFinishWithCompletionHandler:^(int state) {
+                                NSLog(@"%d", state);
+                            }];
 }
 
 - (IBAction)playNonScreenVideo:(id)sender
