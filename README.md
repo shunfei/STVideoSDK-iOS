@@ -7,6 +7,12 @@
 - [Getting Started with STVideoSDK](https://github.com/shunfei/STVideoSDK-iOS/blob/master/Doc/Getting_Started.md)
 
 ## Change Log
+
+11/09/2016 - v2.0.3
+
+* support delegate.
+* support force download resources.
+
 04/22/2016 - v2.0.2
 
 * full screen video ad support pre-download resource

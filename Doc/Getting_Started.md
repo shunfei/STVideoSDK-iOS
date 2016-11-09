@@ -1,4 +1,4 @@
-# 视频广告 iOS SDK 2.0.2 开发文档
+# 视频广告 iOS SDK 2.0.3 开发文档
 
 ## 开发环境
 
@@ -37,7 +37,9 @@ libz.tbd
 
 ```XML
 <key>NSLocationWhenInUseUsageDescription</key>
-<string></string>
+<string>iOS 8 定位权限请求提示语！</string>
+<key>NSLocationUsageDescription</key>
+<string>iOS 10 定位权限请求提示语！</string>
 ```
 
 **说明：由于部分广告会定向投递到某些城市，SDK 需要获取地理位置以支持广告的定向投放。**
@@ -76,7 +78,7 @@ libz.tbd
 #import "STVideoSDK.h"
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions {
-    [STVideoSDK registerSDKWithPublishedId:@"1234" appId:@"2345" placementId:@"1"];
+    [STVideoSDK registerSDKWithPublishedId:@"2" appId:@"36" placementId:@"40" appKey:@"Ac7Kd3lJ^KQX9Hjkn_Z(UO9jqViFh*q1"];
     return YES;
 }
 ```
@@ -100,10 +102,13 @@ libz.tbd
             NSLog(@"广告素材下载失败，SDK关闭。");
             break;
         case 4:
-            NSLog(@"广告数据获取成功，服务端返回无广告素材，SDK关闭。");
+            NSLog(@"服务端返回无广告素材——返量，SDK关闭。");
             break;
         case 5:
             NSLog(@"网络问题，广告 API 调用失败。");
+            break;
+        case 6:
+            NSLog(@"服务端返回无广告素材——留白，SDK关闭。");
             break;
     }];
 ```
@@ -115,18 +120,22 @@ libz.tbd
 1	广告视频播放完成，SDK关闭。
 2	广告视频被跳过，SDK关闭。
 3	广告素材下载失败，SDK关闭。
-4	广告数据获取成功，服务端返回无广告素材，SDK 关闭。
+4	返量，SDK 关闭（无广告素材）。
 5	网络问题，广告 API 调用失败，SDK 关闭。
+6	留白，SDK关闭（无广告素材）。
 ```
 
-#### 提前获取广告数据、并在 Wi-Fi 网络下提前下载广告资源
+#### 提前获取广告数据、Wi-Fi 网络下提前下载广告资源、全网强制下载广告资源
 
 ```objc
-// 开启广告资源 Wi-Fi 下提前下载
+// 提前获取广告数据
+[STVideoSDK isHaveVideo:^(int state) {}];
+
+// Wi-Fi 网络下提前下载广告资源
 [STVideoSDK preDownloadResourcesAtWifiNetwork];
 
-// 手动触发获取广告数据请求
-[STVideoSDK isHaveVideo:^(int state) {}];
+// 全网强制下载广告资源
+[STVideoSDK forcedDownloadResources];
 
 // 检查是否有已经下载完素材，能直接播放的视频广告
 BOOL isReadyForPlay = [STVideoSDK isReadyForPlay];
@@ -134,6 +143,28 @@ if (isReadyForPlay) {
     [STVideoSDK presentVideoPlayerViewControllerInViewController:self
                             videoPlayFinishWithCompletionHandler:^(int state) {}];
 }
+```
+
+#### 全屏视频广告 Delegate
+
+```objc
+// 全屏视频广告资源加载成功
+- (void)fullScreenVideoDidLoad;
+
+// 全屏视频广告资源加载失败
+- (void)fullScreenVideoDidLoadFail;
+
+// 全屏视频广告展示成功
+- (void)fullScreenVideoDidPresent;
+
+// 全屏视频广告完整播放
+- (void)fullScreenVideoDidFullPlay;
+
+// 广告被点击
+- (void)fullScreenVideoDidTap;
+
+// 广告关闭
+- (void)fullScreenVideoDidDismiss;
 ```
 
 ---
@@ -177,6 +208,3 @@ if (isReadyForPlay) {
 ```
 
 开发者可以使用以上两个方法，自定义两种广告样式是否在左上角显示广告关闭按钮，以及关闭按钮点击后的提示语。（默认为不显示关闭按钮，默认关闭提示语为“退出视频”。）
-
-
-

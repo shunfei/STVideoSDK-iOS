@@ -17,9 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // 注册 SDK
     [STVideoSDK registerSDKWithPublishedId:@"2"
-                                     appId:@"7"
-                               placementId:@"6"];
+                                     appId:@"36"
+                               placementId:@"40"
+                                    appKey:@"Ac7Kd3lJ^KQX9Hjkn_Z(UO9jqViFh*q1"];
     
     return YES;
 }

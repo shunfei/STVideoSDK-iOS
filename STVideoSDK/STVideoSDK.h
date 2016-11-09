@@ -11,6 +11,30 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol STFullScreenVideoSDKDelegate <NSObject>
+
+@optional
+
+// 全屏视频广告资源加载成功
+- (void)fullScreenVideoDidLoad;
+
+// 全屏视频广告资源加载失败
+- (void)fullScreenVideoDidLoadFail;
+
+// 全屏视频广告展示成功
+- (void)fullScreenVideoDidPresent;
+
+// 全屏视频广告完整播放
+- (void)fullScreenVideoDidFullPlay;
+
+// 广告被点击
+- (void)fullScreenVideoDidTap;
+
+// 广告关闭
+- (void)fullScreenVideoDidDismiss;
+
+@end
+
 @interface STVideoSDK : NSObject
 
 #pragma mark - 通用 API
@@ -21,24 +45,32 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param publishedId published ID
  *  @param appId       app ID
  *  @param placementId placement ID
+ *  @param appKey      appKey
  */
 + (void)registerSDKWithPublishedId:(NSString *)publishedId
                              appId:(NSString *)appId
-                       placementId:(NSString *)placementId;
+                       placementId:(NSString *)placementId
+                            appKey:(NSString *)appKey;
 
 /**
  *  是否有视频广告
  *
  *  @param completionHandler 0：有视频可以播放
- *                           1：暂时没有可播放视频
+ *                           1：暂时没有可播放视频 - 返量
  *                           2：API调用失败
+ *                           3: 留白
  */
 + (void)isHaveVideo:(void (^ __nullable)(int state))completionHandler;
 
 /**
- *  Wi-Fi下预加载广告资源文件。默认不开启，使用改该方法后开启。
+ *  Wi-Fi下预加载广告资源文件。默认不开启，使用该方法后开启。
  */
 + (void)preDownloadResourcesAtWifiNetwork;
+
+/**
+ *  不区分网络环境，获取广告成功后强制下载广告资源。默认不开启，使用该方法后开启。
+ */
++ (void)forcedDownloadResources;
 
 #pragma mark - 全屏广告 API
 
@@ -57,6 +89,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)presentVideoPlayerViewControllerInViewController:(UIViewController *)viewController
                     videoPlayFinishWithCompletionHandler:(void (^ __nullable)(int state))completionHandler;
+
++ (instancetype)sharedInstance;
+
+@property (nullable, nonatomic, weak) id<STFullScreenVideoSDKDelegate> delegate;
+
+
+
 
 #pragma mark - 非全屏广告 API
 

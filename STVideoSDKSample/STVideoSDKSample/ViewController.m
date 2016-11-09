@@ -23,7 +23,7 @@
 
 - (IBAction)playFullScreenVideo:(id)sender
 {
-    [STVideoSDK showCloseVideoButton:YES];
+    [STVideoSDK showCloseVideoButton:NO];
     [STVideoSDK setupAlertViewContent:@"我是自定义的提示内容？"];
     [STVideoSDK presentVideoPlayerViewControllerInViewController:self
                             videoPlayFinishWithCompletionHandler:^(int state) {
