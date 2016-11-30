@@ -468,7 +468,7 @@ pre[class*="language-"] {
 
 <body>
 
-<h1 id="toc_0">视频广告 iOS SDK 2.0.3 开发文档</h1>
+<h1 id="toc_0">视频广告 iOS SDK 2.0.4 开发文档</h1>
 
 <h2 id="toc_1">开发环境</h2>
 
@@ -477,9 +477,9 @@ pre[class*="language-"] {
 <li>支持 iOS 6.0.0 或更高版本。</li>
 </ul>
 
-<h2 id="toc_2">PublisherID、PlacementID、AppID</h2>
+<h2 id="toc_2">PublisherID、PlacementID、AppID、AppKey</h2>
 
-<p>从 <a href="http://mbv.biddingx.com/main/">官网</a> 获取 PublisherID、PlacementID、AppID。</p>
+<p>从 <a href="http://mbv.biddingx.com/main/">官网</a> 获取 PublisherID、PlacementID、AppID、AppKey。</p>
 
 <h2 id="toc_3">SDK 集成</h2>
 
@@ -489,13 +489,10 @@ pre[class*="language-"] {
 
 <div><pre><code class="language-objectivec">AdSupport.framework
 AVFoundation.framework
-CoreGraphics.framework
-CoreLocation.framework
-CoreMedia.framework
+CoreLocation.framework（关闭基于位置广告的开发者，可以不添加）
 CoreTelephony.framework
 Foundation.framework
 MobileCoreServices.framework
-QuartzCore.framework
 Security.framework
 SystemConfiguration.framework
 UIKit.framework
@@ -503,7 +500,7 @@ libz.tbd</code></pre></div>
 
 <p>3、设置对应 <strong>target</strong> 的编译选项，在『Build Settings』-&gt;『Linking』-&gt;『Other Linker Flags』，添加 <code>-ObjC</code> 参数。</p>
 
-<p>4、iOS 8.0+ 中获取地理位置方法，在 info.plist 里加入对应的定位请求字段，值可以为空或者填写获取定位请求提示框要显示的内容。</p>
+<p>4、iOS 8.0+ 中获取地理位置方法，在 info.plist 里加入对应的定位请求字段，值可以为空或者填写获取定位请求提示框要显示的内容。<strong>（关闭基于位置广告的开发者，可以不添加）</strong></p>
 
 <div><pre><code class="language-XML">&lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;
 &lt;string&gt;iOS 8 定位权限请求提示语！&lt;/string&gt;
@@ -512,44 +509,16 @@ libz.tbd</code></pre></div>
 
 <p><strong>说明：由于部分广告会定向投递到某些城市，SDK 需要获取地理位置以支持广告的定向投放。</strong></p>
 
-<p>5、Xcode 7.0+ 、iOS 9.0+ 适配</p>
-
-<ul>
-<li><p>关于 <a href="https://developer.apple.com/library/prerelease/ios/technotes/App-Transport-Security-Technote/index.html#//apple_ref/doc/uid/TP40016240"><em>ATS</em></a></p>
-
-<p><strong>解决方案：禁用 ATS。</strong></p>
-
-<p>在应用的 Info.plist 中添加禁用 ATS 代码。代码如下：</p></li>
-</ul>
-
-<div><pre><code class="language-XML">&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
-&lt;dict&gt;
-    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
-    &lt;true/&gt;
-&lt;/dict&gt;</code></pre></div>
-
-<ul>
-<li><p>关于 Bitcode</p>
-
-<p>Xcode 7 默认开启 <strong>Bitcode</strong> 编译选项（无 <strong>Bitcode</strong> 配置，默认为开启），SDK 1.2.3+ 版本开始支持 <strong>Bitcode</strong> ，如果您的工程中有其它不支持 <strong>Bitcode</strong> 特性的库可能编译不过。</p>
-
-<p><strong>解决方案：请将项目对应 『Target』-&gt;『Build Settings』-&gt;『Build Options』-&gt;『Enable Bitcode』选项设置为 No 。</strong></p></li>
-</ul>
-
 <h2 id="toc_4">SDK 使用</h2>
 
 <h3 id="toc_5">全屏视频广告</h3>
 
 <h4 id="toc_6">初始化 SDK</h4>
 
-<p>在应用 <code>AppDelegate.m</code> 的 <code>application:didFinishLaunchingWithOptions:</code> 方法中初始化视频 SDK</p>
-
-<div><pre><code class="language-objectivec">#import &quot;STVideoSDK.h&quot;
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions {
-    [STVideoSDK registerSDKWithPublishedId:@&quot;2&quot; appId:@&quot;36&quot; placementId:@&quot;40&quot; appKey:@&quot;Ac7Kd3lJ^KQX9Hjkn_Z(UO9jqViFh*q1&quot;];
-    return YES;
-}</code></pre></div>
+<div><pre><code class="language-objectivec">[STVideoSDK registerSDKWithPublishedId:@&quot;2&quot;
+                                 appId:@&quot;36&quot;
+                           placementId:@&quot;40&quot;
+                                appKey:@&quot;Ac7Kd3lJ^KQX9Hjkn_Z(UO9jqViFh*q1&quot;];</code></pre></div>
 
 <h4 id="toc_7">展示全屏视频广告</h4>
 
@@ -627,11 +596,17 @@ if (isReadyForPlay) {
 // 广告关闭
 - (void)fullScreenVideoDidDismiss;</code></pre></div>
 
+<h4 id="toc_10">关闭基于位置的广告</h4>
+
+<div><pre><code class="language-objectivec">// 关闭位置广告。
+// 需要在注册 SDK 后，请求广告前使用。
++ (void)disableLocationServices;</code></pre></div>
+
 <hr>
 
-<h3 id="toc_10">非全屏视频广告</h3>
+<h3 id="toc_11">非全屏视频广告</h3>
 
-<h4 id="toc_11">初始化 SDK</h4>
+<h4 id="toc_12">初始化 SDK</h4>
 
 <p>在应用 <code>AppDelegate.m</code> 的 <code>application:didFinishLaunchingWithOptions:</code> 方法中初始化视频 SDK</p>
 
@@ -642,7 +617,7 @@ if (isReadyForPlay) {
     return YES;
 }</code></pre></div>
 
-<h4 id="toc_12">展示非全屏视频广告</h4>
+<h4 id="toc_13">展示非全屏视频广告</h4>
 
 <p>1、先调用以下方法</p>
 
@@ -654,7 +629,7 @@ if (isReadyForPlay) {
 
 <p>3、当将广告添加在 UIScrollView、UITableView 等可滚动的控件上时，请自行在视频滚出屏幕时，使用 <code>+ (void)playVideo;</code> 和 <code>+ (void)pauseVideo;</code> 方法控制视频的暂停和继续播放。</p>
 
-<h4 id="toc_13">高级设置</h4>
+<h4 id="toc_14">高级设置</h4>
 
 <div><pre><code class="language-objectivec">+ (void)showCloseVideoButton:(BOOL)isShow;
 + (void)setCloseAlertViewContent:(nullable NSString *)content;</code></pre></div>

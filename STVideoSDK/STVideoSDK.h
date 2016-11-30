@@ -72,6 +72,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)forcedDownloadResources;
 
+/**
+ *  关闭位置广告。
+ *  需要在注册 SDK 后，请求广告前使用。
+ */
++ (void)disableLocationServices;
+
 #pragma mark - 全屏广告 API
 
 /**

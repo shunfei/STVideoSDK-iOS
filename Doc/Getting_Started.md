@@ -1,13 +1,13 @@
-# 视频广告 iOS SDK 2.0.3 开发文档
+# 视频广告 iOS SDK 2.0.4 开发文档
 
 ## 开发环境
 
 * Xcode 7.0 或更高版本。
 * 支持 iOS 6.0.0 或更高版本。
 
-## PublisherID、PlacementID、AppID
+## PublisherID、PlacementID、AppID、AppKey
 
-从 [官网](http://mbv.biddingx.com/main/) 获取 PublisherID、PlacementID、AppID。
+从 [官网](http://mbv.biddingx.com/main/) 获取 PublisherID、PlacementID、AppID、AppKey。
 
 ## SDK 集成
 
@@ -18,13 +18,10 @@
 ```objc
 AdSupport.framework
 AVFoundation.framework
-CoreGraphics.framework
-CoreLocation.framework
-CoreMedia.framework
+CoreLocation.framework（关闭基于位置广告的开发者，可以不添加）
 CoreTelephony.framework
 Foundation.framework
 MobileCoreServices.framework
-QuartzCore.framework
 Security.framework
 SystemConfiguration.framework
 UIKit.framework
@@ -33,7 +30,7 @@ libz.tbd
 
 3、设置对应 **target** 的编译选项，在『Build Settings』->『Linking』->『Other Linker Flags』，添加 `-ObjC` 参数。
 
-4、iOS 8.0+ 中获取地理位置方法，在 info.plist 里加入对应的定位请求字段，值可以为空或者填写获取定位请求提示框要显示的内容。
+4、iOS 8.0+ 中获取地理位置方法，在 info.plist 里加入对应的定位请求字段，值可以为空或者填写获取定位请求提示框要显示的内容。**（关闭基于位置广告的开发者，可以不添加）**
 
 ```XML
 <key>NSLocationWhenInUseUsageDescription</key>
@@ -44,43 +41,17 @@ libz.tbd
 
 **说明：由于部分广告会定向投递到某些城市，SDK 需要获取地理位置以支持广告的定向投放。**
 
-5、Xcode 7.0+ 、iOS 9.0+ 适配
-
-* 关于 [*ATS*](https://developer.apple.com/library/prerelease/ios/technotes/App-Transport-Security-Technote/index.html#//apple_ref/doc/uid/TP40016240)
-
-	**解决方案：禁用 ATS。**
-
-	在应用的 Info.plist 中添加禁用 ATS 代码。代码如下：
-
-```XML
-<key>NSAppTransportSecurity</key>
-<dict>
-	<key>NSAllowsArbitraryLoads</key>
-	<true/>
-</dict>
-```
-
-* 关于 Bitcode
-
-	Xcode 7 默认开启 **Bitcode** 编译选项（无 **Bitcode** 配置，默认为开启），SDK 1.2.3+ 版本开始支持 **Bitcode** ，如果您的工程中有其它不支持 **Bitcode** 特性的库可能编译不过。
-
-	**解决方案：请将项目对应 『Target』->『Build Settings』->『Build Options』->『Enable Bitcode』选项设置为 No 。**
-
 ## SDK 使用
 
 ### 全屏视频广告
 
 #### 初始化 SDK
 
-在应用 `AppDelegate.m` 的 `application:didFinishLaunchingWithOptions:` 方法中初始化视频 SDK
-
 ```objc
-#import "STVideoSDK.h"
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions {
-    [STVideoSDK registerSDKWithPublishedId:@"2" appId:@"36" placementId:@"40" appKey:@"Ac7Kd3lJ^KQX9Hjkn_Z(UO9jqViFh*q1"];
-    return YES;
-}
+[STVideoSDK registerSDKWithPublishedId:@"2"
+                                 appId:@"36"
+                           placementId:@"40"
+                                appKey:@"Ac7Kd3lJ^KQX9Hjkn_Z(UO9jqViFh*q1"];
 ```
 	
 #### 展示全屏视频广告
@@ -165,6 +136,14 @@ if (isReadyForPlay) {
 
 // 广告关闭
 - (void)fullScreenVideoDidDismiss;
+```
+
+#### 关闭基于位置的广告
+
+```objc
+// 关闭位置广告。
+// 需要在注册 SDK 后，请求广告前使用。
++ (void)disableLocationServices;
 ```
 
 ---
