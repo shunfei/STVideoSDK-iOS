@@ -468,7 +468,7 @@ pre[class*="language-"] {
 
 <body>
 
-<h1 id="toc_0">视频广告 iOS SDK 2.0.4 开发文档</h1>
+<h1 id="toc_0">视频广告 iOS SDK 2.0.5 开发文档</h1>
 
 <h2 id="toc_1">开发环境</h2>
 
@@ -477,9 +477,9 @@ pre[class*="language-"] {
 <li>支持 iOS 6.0.0 或更高版本。</li>
 </ul>
 
-<h2 id="toc_2">PublisherID、PlacementID、AppID、AppKey</h2>
+<h2 id="toc_2">AdUnitID、AppSecret</h2>
 
-<p>从 <a href="http://mbv.biddingx.com/main/">官网</a> 获取 PublisherID、PlacementID、AppID、AppKey。</p>
+<p>从 <a href="http://mbv.biddingx.com/main/">官网</a> 获取 AdUnitID、AppSecret。</p>
 
 <h2 id="toc_3">SDK 集成</h2>
 
@@ -515,10 +515,8 @@ libz.tbd</code></pre></div>
 
 <h4 id="toc_6">初始化 SDK</h4>
 
-<div><pre><code class="language-objectivec">[STVideoSDK registerSDKWithPublishedId:@&quot;2&quot;
-                                 appId:@&quot;36&quot;
-                           placementId:@&quot;40&quot;
-                                appKey:@&quot;Ac7Kd3lJ^KQX9Hjkn_Z(UO9jqViFh*q1&quot;];</code></pre></div>
+<div><pre><code class="language-objectivec">[STVideoSDK registerSDKWithAdUnitID:@&quot;2-36-40&quot;
+                          appSecret:@&quot;Ac7Kd3lJ^KQX9Hjkn_Z(UO9jqViFh*q1&quot;];</code></pre></div>
 
 <h4 id="toc_7">展示全屏视频广告</h4>
 

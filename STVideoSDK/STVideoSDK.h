@@ -42,15 +42,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  注册 SDK
  *
- *  @param publishedId published ID
- *  @param appId       app ID
- *  @param placementId placement ID
- *  @param appKey      appKey
+ *  @param adUnitID    ad unit ID
+ *  @param appSecret   app secret
  */
-+ (void)registerSDKWithPublishedId:(NSString *)publishedId
-                             appId:(NSString *)appId
-                       placementId:(NSString *)placementId
-                            appKey:(NSString *)appKey;
++ (void)registerSDKWithAdUnitID:(NSString *)adUnitID
+                      appSecret:(NSString *)appSecret;
 
 /**
  *  是否有视频广告

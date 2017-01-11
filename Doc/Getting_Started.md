@@ -1,13 +1,13 @@
-# 视频广告 iOS SDK 2.0.4 开发文档
+# 视频广告 iOS SDK 2.0.5 开发文档
 
 ## 开发环境
 
 * Xcode 7.0 或更高版本。
 * 支持 iOS 6.0.0 或更高版本。
 
-## PublisherID、PlacementID、AppID、AppKey
+## AdUnitID、AppSecret
 
-从 [官网](http://mbv.biddingx.com/main/) 获取 PublisherID、PlacementID、AppID、AppKey。
+从 [官网](http://mbv.biddingx.com/main/) 获取 AdUnitID、AppSecret。
 
 ## SDK 集成
 
@@ -48,10 +48,8 @@ libz.tbd
 #### 初始化 SDK
 
 ```objc
-[STVideoSDK registerSDKWithPublishedId:@"2"
-                                 appId:@"36"
-                           placementId:@"40"
-                                appKey:@"Ac7Kd3lJ^KQX9Hjkn_Z(UO9jqViFh*q1"];
+[STVideoSDK registerSDKWithAdUnitID:@"2-36-40"
+                          appSecret:@"Ac7Kd3lJ^KQX9Hjkn_Z(UO9jqViFh*q1"];
 ```
 	
 #### 展示全屏视频广告

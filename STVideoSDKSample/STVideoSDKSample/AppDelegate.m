@@ -19,10 +19,8 @@
     // Override point for customization after application launch.
     
     // 注册 SDK
-    [STVideoSDK registerSDKWithPublishedId:@"2"
-                                     appId:@"36"
-                               placementId:@"40"
-                                    appKey:@"Ac7Kd3lJ^KQX9Hjkn_Z(UO9jqViFh*q1"];
+    [STVideoSDK registerSDKWithAdUnitID:@"2-36-40"
+                              appSecret:@"Ac7Kd3lJ^KQX9Hjkn_Z(UO9jqViFh*q1"];
     
     return YES;
 }
